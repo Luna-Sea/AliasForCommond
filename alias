@@ -1,8 +1,9 @@
-alias     update='apt update'
-alias     upgrade='apt upgrade'
-alias     remove='apt remove'
-alias     install='apt install'
-alias     installed='apt list --installed'
-alias     search='apt search'
-
-
+alias     Pupdate='apt update'
+alias     Pupgrade='apt upgrade'
+alias     Premove='apt remove'
+alias     Pinstall='apt install'
+alias     Pinstalled='apt list --installed'
+alias     Psearch='apt search'
+alias     Pshow='apt show'
+alias     Pclean='apt clean'
+alias     Pautoclean='apt autoclean'
