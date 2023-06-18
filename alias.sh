@@ -1,15 +1,16 @@
-alias     Pupdate='apt update'
-alias     Pupgrade='apt upgrade'
-alias     Premove='apt remove'
-alias     Pinstall='apt install'
-alias     Pinstalled='apt list --installed'
-alias     Psearch='apt search'
-alias     Pshow='apt show'
-alias     Pclean='apt clean'
-alias     Pautoclean='apt autoclean'
-alias     Systemversion="lsb_release -a"
+echo " alias     Pupdate='apt update'" >> /etc/alias/alias.sh
+echo " alias     Pupgrade='apt upgrade'>> /etc/alias/alias.sh
+echo " alias     Premove='apt remove'>> /etc/alias/alias.sh
+echo " alias     Pinstall='apt install'>> /etc/alias/alias.sh
+echo " alias     Pinstalled='apt list --installed'>> /etc/alias/alias.sh
+echo " alias     Psearch='apt search'>> /etc/alias/alias.sh
+echo " alias     Pshow='apt show'>> /etc/alias/alias.sh
+echo " alias     Pclean='apt clean'>> /etc/alias/alias.sh
+echo " alias     Pautoclean='apt autoclean'>> /etc/alias/alias.sh
+echo " alias     Systemversion="lsb_release -a">> /etc/alias/alias.sh
 
 
 
-printf "\n" >>"source  /etc/alias.sh"
+printf "\n" >> /etc/bash.bashrc
+printf "source  /etc/alias/alias.sh"
 source /etc/bash.bashrc
