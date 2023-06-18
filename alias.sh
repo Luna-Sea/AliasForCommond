@@ -1,3 +1,4 @@
+mkdir /etc/alias/
 echo " alias     Pupdate='apt update'" >> /etc/alias/alias.sh
 echo " alias     Pupgrade='apt upgrade'>> /etc/alias/alias.sh
 echo " alias     Premove='apt remove'>> /etc/alias/alias.sh
