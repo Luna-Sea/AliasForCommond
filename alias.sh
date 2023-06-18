@@ -12,6 +12,6 @@ echo " alias     Systemversion='lsb_release -a'     " >> /etc/alias/alias.sh
 
 
 
-printf "\n" >> /etc/bash.bashrc
-printf "source  /etc/alias/alias.sh"
+printf "\n"                                           >> /etc/bash.bashrc
+printf "source  /etc/alias/alias.sh"                  >> /etc/bash.bashrc
 source /etc/bash.bashrc
