@@ -7,3 +7,9 @@ alias     Psearch='apt search'
 alias     Pshow='apt show'
 alias     Pclean='apt clean'
 alias     Pautoclean='apt autoclean'
+alias     Systemversion="lsb_release -a"
+
+
+
+printf "\n" >>"source  /etc/alias.sh"
+source /etc/bash.bashrc
