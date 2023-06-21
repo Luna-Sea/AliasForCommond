@@ -17,7 +17,7 @@ Description=${name}
 After=network.target
 
 [Service]
-ExecStart=${file}  ${configtag}  "/etc/${name}/${config}"
+ExecStart=${file}  ${configtag}  /etc/${name}/${config}
 Restart=always
 
 [Install]
