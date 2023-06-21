@@ -7,7 +7,7 @@ read -r configtag
 echo "set servuce config path"
 read -r config
 
-cat << EOF >> /etc/systemd/system/${name}.service
+cat << EOF >> "/etc/systemd/system/${name}.service"
 
 [Unit]
 Description=${name}
