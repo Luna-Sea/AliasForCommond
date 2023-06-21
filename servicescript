@@ -1,0 +1,23 @@
+echo "set service name"
+read name
+echo "set service file path"
+read -r file
+echi "set service configtag"
+read -r configtag
+echo "set servuce config path"
+read -r config
+
+cat << EOF >> /etc/systemd/system/${name}.service
+
+[Unit]
+Description=${name}
+After=network.target
+
+[Service]
+ExecStart=${file} ${configtag}  ${config} 
+Restart=always
+
+[Install]
+WantedBy=default.target
+
+EOF
