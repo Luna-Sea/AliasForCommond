@@ -2,7 +2,7 @@ echo "set service name"
 read name
 echo "set service file path"
 read -r file
-echi "set service configtag"
+echo "set service configtag"
 read -r configtag
 echo "set servuce config path"
 read -r config
