@@ -6,6 +6,8 @@ echo "set service configtag"
 read -r configtag
 echo "set servuce config path"
 read -r config
+mkdir -p "/etc/${name}"
+
 
 cat << EOF >> "/etc/systemd/system/${name}.service"
 
