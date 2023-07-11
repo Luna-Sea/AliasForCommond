@@ -1,11 +1,11 @@
 echo "set service name"
 read name
 mkdir -p "/etc/${name}"
-echo "set service file path"
+echo "set service run file path"
 read -r file
-echo "set service configtag"
-read -r configtag
-echo "set service config name"
+echo "set service config para"
+read -r para
+echo "set service config file name"
 read -r config
 touch "/etc/${name}/${config}"
 
@@ -17,7 +17,7 @@ Description=${name}
 After=network.target
 
 [Service]
-ExecStart=${file}  ${configtag}  /etc/${name}/${config}
+ExecStart=${file}  ${para}  /etc/${name}/${config}
 Restart=always
 
 [Install]
