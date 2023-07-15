@@ -7,8 +7,9 @@ echo " alias     Pinstalled='apt list --installed'  " >> /etc/alias/alias.sh
 echo " alias     Psearch='apt search'               " >> /etc/alias/alias.sh
 echo " alias     Pshow='apt show'                   " >> /etc/alias/alias.sh
 echo " alias     Pclean='apt clean'                 " >> /etc/alias/alias.sh
-echo " alias     Pautoclean='apt autoclean'         " >> /etc/alias/alias.sh
+echo " alias     pautoclean='apt autoclean'         " >> /etc/alias/alias.sh
 echo " alias     Systemversion='lsb_release -a'     " >> /etc/alias/alias.sh
+echo " alias     Softwareversion='update-alternatives --config'     " >> /etc/alias/alias.sh
 
 
 
