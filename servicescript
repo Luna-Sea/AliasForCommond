@@ -7,7 +7,7 @@ echo "set service config para"
 read -r para
 echo "set service config file path"
 read -r config
-touch "${config}"
+touch "/etc/${name}/${config}"
 
 
 cat << EOF > "/etc/systemd/system/${name}.service"
