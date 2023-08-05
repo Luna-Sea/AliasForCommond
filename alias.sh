@@ -10,6 +10,11 @@ echo " alias     Pclean='apt clean'                 " >> /etc/alias/alias.sh
 echo " alias     pautoclean='apt autoclean'         " >> /etc/alias/alias.sh
 echo " alias     Systemversion='lsb_release -a'     " >> /etc/alias/alias.sh
 echo " alias     Softwareversion='update-alternatives --config'     " >> /etc/alias/alias.sh
+echo " alias     Systememerg='journalctl -p 0 --reverse'     " >> /etc/alias/alias.sh
+echo " alias     Systemalert='journalctl -p 1 --reverse'     " >> /etc/alias/alias.sh
+echo " alias     Systemcritical='journalctl -p 2 --reverse'     " >> /etc/alias/alias.sh
+echo " alias     Systemerror='journalctl -p 3 --reverse'     " >> /etc/alias/alias.sh
+echo " alias     Systemwarning='journalctl -p 4 --reverse'     " >> /etc/alias/alias.sh
 
 
 
