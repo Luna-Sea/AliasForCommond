@@ -14,7 +14,7 @@ echo " alias     Systememerg='journalctl -p 0 --reverse'     " >> /etc/alias/ali
 echo " alias     Systemalert='journalctl -p 1 --reverse'     " >> /etc/alias/alias.sh
 echo " alias     Systemcritical='journalctl -p 2 --reverse'     " >> /etc/alias/alias.sh
 echo " alias     Systemerror='journalctl -p 3 --reverse'     " >> /etc/alias/alias.sh
-echo " alias     Systemwarning='journalctl -p 0,1,2,3,4 --reverse'     " >> /etc/alias/alias.sh
+echo " alias     Systemwarning='journalctl -p 0..4 --reverse'     " >> /etc/alias/alias.sh
 
 
 
