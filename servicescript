@@ -10,7 +10,7 @@ read -r config
 touch "/etc/${name}/${config}"
 
 
-cat << EOF >> "/etc/systemd/system/${name}.service"
+cat << EOF > "/etc/systemd/system/${name}.service"
 
 [Unit]
 Description=${name}
