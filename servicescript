@@ -5,7 +5,7 @@ echo "set service run file path"
 read -r file
 echo "set service config para"
 read -r para
-echo "set service config file path"
+echo "set service config file name"
 read -r config
 touch "/etc/${name}/${config}"
 
