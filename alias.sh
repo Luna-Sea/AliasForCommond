@@ -16,7 +16,8 @@ echo " alias     Systemalert='journalctl -p 1 --reverse'     " >> /etc/alias/ali
 echo " alias     Systemcritical='journalctl -p 2 --reverse'     " >> /etc/alias/alias.sh
 echo " alias     Systemerror='journalctl -p 3 --reverse'     " >> /etc/alias/alias.sh
 echo " alias     Systemwarning='journalctl -p 0..4 --reverse'     " >> /etc/alias/alias.sh
-
+echo " alias     Systemcleaninfom='journalctl --vacuum-time=1months'     " >> /etc/alias/alias.sh
+echo " alias     Systemcleaninfomall='journalctl --vacuum-size=0'     " >> /etc/alias/alias.sh
 
 
 printf "\n"                                           >> /etc/bash.bashrc
