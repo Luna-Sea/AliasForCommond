@@ -25,6 +25,7 @@ echo " alias     SystemcleanInfo='journalctl --vacuum-time=1months'     " >> /et
 echo " alias     SystemcleanInfoAll='journalctl --vacuum-size=0'     " >> /etc/alias/alias.sh
 
 echo " alias     port='lsof -i '     " >> /etc/alias/alias.sh
+echo " alias     dns='cat  /etc/resolv.conf '     " >> /etc/alias/alias.sh
 
 
 printf "\n"                                           >> /etc/bash.bashrc
