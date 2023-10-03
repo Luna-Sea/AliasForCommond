@@ -26,7 +26,7 @@ echo " alias     Systemwarning='journalctl -p 0..4 --reverse'     " >> /etc/alia
 echo " alias     SystemcleanInfo='journalctl --vacuum-time=1months'     " >> /etc/alias/alias.sh
 echo " alias     SystemcleanInfoAll='journalctl --vacuum-size=0'     " >> /etc/alias/alias.sh
 
-echo " alias     servicelog=='cat /var/log/syslog | grep'    " >> /etc/alias/alias.sh
+echo " alias     status='cat /var/log/syslog | grep'    " >> /etc/alias/alias.sh
 
 
 
