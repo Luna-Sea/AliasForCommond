@@ -32,6 +32,78 @@ echo " alias     SystemcleanInfoAll='journalctl --vacuum-size=0'     " >> /etc/a
 echo " alias     status='cat /var/log/syslog | grep '    " >> /etc/alias/alias.sh
 echo " alias     process='ps aux | grep '    " >> /etc/alias/alias.sh
 
+###############
+# 目标目录
+target_dir="/etc/alias/"
+
+# 确保目标目录存在，如果不存在则创建
+if [ ! -d "$target_dir" ]; then
+    mkdir -p "$target_dir"
+fi
+
+# 目标文件路径
+target_path="$target_dir/environment.sh"
+
+# 主脚本内容
+main_script_content=$(cat <<EOF
+#!/bin/bash
+
+# 检查是否提供了正确数量的参数
+if [ "\$#" -ne 1 ]; then
+    echo "Usage: \$0 <path_to_link>"
+    exit 1
+fi
+
+# 获取要链接的路径
+path_to_link="\$1"
+
+# 检查路径是否存在
+if [ ! -e "\$path_to_link" ]; then
+    echo "Error: Path does not exist: \$path_to_link"
+    exit 1
+fi
+
+# 提取要链接的文件名
+link_name=\$(basename "\$path_to_link")
+
+# 构建链接路径
+link_path="/usr/local/bin/\$link_name"
+
+# 创建符号链接
+if ln -s "\$path_to_link" "\$link_path"; then
+    echo "Symbolic link created successfully: \$link_path"
+else
+    echo "Error creating symbolic link"
+    exit 1
+fi
+EOF
+)
+
+# 将主脚本内容写入目标文件
+echo "$main_script_content" > "$target_path"
+
+# 检查是否写入成功
+if [ $? -eq 0 ]; then
+    echo "Script generated successfully at: $target_path"
+else
+    echo "Error generating script"
+    exit 1
+fi
+
+# 添加执行权限
+chmod +x "$target_path"
+
+# 检查是否添加执行权限成功
+if [ $? -eq 0 ]; then
+    echo "Execution permission added successfully to: $target_path"
+else
+    echo "Error adding execution permission"
+    exit 1
+fi
+ln -s $target_dir/environment.sh /usr/local/bin/environment
+
+###############
+
 
 
 printf "\n"                                           >> /etc/bash.bashrc
