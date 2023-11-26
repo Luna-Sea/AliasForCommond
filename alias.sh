@@ -32,21 +32,19 @@ echo " alias     SystemcleanInfoAll='journalctl --vacuum-size=0'     " >> /etc/a
 echo " alias     status='cat /var/log/syslog | grep '    " >> /etc/alias/alias.sh
 echo " alias     process='ps aux | grep '    " >> /etc/alias/alias.sh
 
-###############
-# 目标目录
-target_dir="/etc/alias/"
 
-# 确保目标目录存在，如果不存在则创建
-if [ ! -d "$target_dir" ]; then
-    mkdir -p "$target_dir"
-fi
-
-# 目标文件路径
+###################################
 target_path="$target_dir/environment.sh"
+
+# 检查目标文件所在目录是否存在，不存在则创建
+target_dir=$(dirname "$target_path")
+mkdir -p "$target_dir"
 
 # 主脚本内容
 main_script_content=$(cat <<EOF
 #!/bin/bash
+
+set -e
 
 # 检查是否提供了正确数量的参数
 if [ "\$#" -ne 1 ]; then
@@ -100,7 +98,15 @@ else
     echo "Error adding execution permission"
     exit 1
 fi
-ln -s $target_dir/environment.sh /usr/local/bin/environment
+
+# 创建符号链接
+link_path="/usr/local/bin/environment"
+if [ -e "$link_path" ]; then
+    echo "Symbolic link already exists: $link_path"
+else
+    ln -s "$target_path" "$link_path"
+    echo "Symbolic link created successfully: $link_path"
+fi
 
 ###############
 
