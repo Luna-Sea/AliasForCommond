@@ -99,7 +99,7 @@ else
     exit 1
 fi
 
-# 创建符号链接
+# 创建符号链接. 创建environment环境变量 连接到之前创建的environment.sh
 link_path="/usr/local/bin/environment"
 if [ -e "$link_path" ]; then
     echo "Symbolic link already exists: $link_path"
@@ -107,7 +107,6 @@ else
     ln -s "$target_path" "$link_path"
     echo "Symbolic link created successfully: $link_path"
 fi
-
 ###############
 
 
