@@ -13,6 +13,9 @@ echo " alias     Pautoclean='apt autoclean'         " >> /etc/alias/alias.sh
 echo " alias     Systemversion='lsb_release -a'     " >> /etc/alias/alias.sh
 echo " alias     Softwareversion='update-alternatives --config'     " >> /etc/alias/alias.sh
 
+echo " alias     Systemtime='dpkg-reconfigure tzdata'     " >> /etc/alias/alias.sh
+
+
 echo " alias     ipv6='ip addr | grep  inet6'     " >> /etc/alias/alias.sh
 echo " alias     ipv4='ip addr | grep  inet'     " >> /etc/alias/alias.sh
 echo " alias     port='lsof -i | grep '     " >> /etc/alias/alias.sh
