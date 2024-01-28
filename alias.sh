@@ -37,6 +37,7 @@ echo " alias     process='ps aux | grep '    " >> /etc/alias/alias.sh
 
 
 ###################################
+#  变量$target_dir代表目标文件夹的路径
 target_path="$target_dir/environment.sh"
 
 # 检查目标文件所在目录是否存在，不存在则创建
@@ -49,16 +50,16 @@ main_script_content=$(cat <<EOF
 
 set -e
 
-# 检查是否提供了正确数量的参数
+# 如果参数个数不等于1，就输出使用说明并退出。
 if [ "\$#" -ne 1 ]; then
     echo "Usage: \$0 <path_to_link>"
     exit 1
 fi
 
-# 获取要链接的路径
+# 将第一个参数（要链接的路径）保存在path_to_link变量中。
 path_to_link="\$1"
 
-# 检查路径是否存在
+# 如果指定的路径不存在，输出错误信息并退出。
 if [ ! -e "\$path_to_link" ]; then
     echo "Error: Path does not exist: \$path_to_link"
     exit 1
