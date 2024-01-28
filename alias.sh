@@ -37,80 +37,50 @@ echo " alias     process='ps aux | grep '    " >> /etc/alias/alias.sh
 
 
 ###################################
-#  变量$target_dir代表目标文件夹的路径
-target_path="$target_dir/environment.sh"
-
-# 检查目标文件所在目录是否存在，不存在则创建
-target_dir=$(dirname "$target_path")
-mkdir -p "$target_dir"
-
-# 主脚本内容
-main_script_content=$(cat <<EOF
+content=$(cat <<EOF
 #!/bin/bash
 
-set -e
-
-# 如果参数个数不等于1，就输出使用说明并退出。
-if [ "\$#" -ne 1 ]; then
-    echo "Usage: \$0 <path_to_link>"
-    exit 1
+# 检查参数是否为空
+if [ -z "\$1" ]; then
+  echo "请提供一个路径作为参数。"
+  exit 1
 fi
 
-# 将第一个参数（要链接的路径）保存在path_to_link变量中。
-path_to_link="\$1"
+target_file="\$1"
+bashrc_file="\$HOME/.bashrc"
 
-# 如果指定的路径不存在，输出错误信息并退出。
-if [ ! -e "\$path_to_link" ]; then
-    echo "Error: Path does not exist: \$path_to_link"
-    exit 1
+# 检查目标文件是否存在
+if [ ! -e "\$target_file" ]; then
+  echo "目标文件 '\$target_file' 不存在。"
+  exit 1
 fi
 
-# 提取要链接的文件名
-link_name=\$(basename "\$path_to_link")
+# 为目标文件添加执行权限
+chmod +x "\$target_file"
 
-# 构建链接路径
-link_path="/usr/local/bin/\$link_name"
-
-# 创建符号链接
-if ln -s "\$path_to_link" "\$link_path"; then
-    echo "Symbolic link created successfully: \$link_path"
-else
-    echo "Error creating symbolic link"
-    exit 1
+# 检查目标文件是否已经在.bashrc中
+if grep -q "\$target_file" "\$bashrc_file"; then
+  echo "目标文件 '\$target_file' 已经存在于 \$bashrc_file 中。"
+  exit 1
 fi
+
+# 将目标文件追加到.bashrc中
+echo "export PATH=\$PATH:\$target_file" >> "\$bashrc_file"
+
+echo "目标文件 '\$target_file' 已成功添加到 \$bashrc_file 中，并已添加执行权限。"
 EOF
 )
 
-# 将主脚本内容写入目标文件
-echo "$main_script_content" > "$target_path"
+mkdir -p /etc/environment_tool
 
-# 检查是否写入成功
-if [ $? -eq 0 ]; then
-    echo "Script generated successfully at: $target_path"
-else
-    echo "Error generating script"
-    exit 1
-fi
+# 将脚本内容写入文件
+echo "$content" > /etc/environment_tool/add_environment.sh
 
 # 添加执行权限
-chmod +x "$target_path"
+chmod +x /etc/environment_tool/add_environment.sh
 
-# 检查是否添加执行权限成功
-if [ $? -eq 0 ]; then
-    echo "Execution permission added successfully to: $target_path"
-else
-    echo "Error adding execution permission"
-    exit 1
-fi
-
-# 创建符号链接. 创建environment环境变量 连接到之前创建的environment.sh
-link_path="/usr/local/bin/environment"
-if [ -e "$link_path" ]; then
-    echo "Symbolic link already exists: $link_path"
-else
-    ln -s "$target_path" "$link_path"
-    echo "Symbolic link created successfully: $link_path"
-fi
+# 创建符号链接到/usr/local/bin,并覆盖
+ln -sf /etc/environment_tool/add_environment.sh /usr/local/bin/add_environment
 ###############
 
 
