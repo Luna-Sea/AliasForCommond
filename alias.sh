@@ -18,7 +18,7 @@ echo " alias     Systemtime='dpkg-reconfigure tzdata'     " >> /etc/alias/alias.
 
 echo " alias     ipv6='ip addr | grep  inet6'     " >> /etc/alias/alias.sh
 echo " alias     ipv4='ip addr | grep  inet'     " >> /etc/alias/alias.sh
-echo " alias     port='lsof -i | grep '     " >> /etc/alias/alias.sh
+echo " alias     port='netstat -tulpn | grep '     " >> /etc/alias/alias.sh
 echo " alias     dns='cat  /etc/resolv.conf '     " >> /etc/alias/alias.sh
 
 echo " alias     Link='ln -s  '     " >> /etc/alias/alias.sh
