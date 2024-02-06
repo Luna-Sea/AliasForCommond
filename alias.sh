@@ -12,6 +12,8 @@ echo " alias     Pautoclean='apt autoclean'         " >> /etc/alias/alias.sh
 
 echo " alias     Systemversion='lsb_release -a'     " >> /etc/alias/alias.sh
 echo " alias     Softwareversion='update-alternatives --config'     " >> /etc/alias/alias.sh
+echo " alias     kernel='cat /proc/version'     " >> /etc/alias/alias.sh
+
 
 echo " alias     Systemtime='dpkg-reconfigure tzdata'     " >> /etc/alias/alias.sh
 
