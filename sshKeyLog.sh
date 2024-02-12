@@ -13,10 +13,10 @@ echo -e "${RED}Do you want to disable password authentication? | yes or no${NC}"
 read -r answer
 if [ "$answer" == "yes" ]; then
     sed -i 's/^#\?PasswordAuthentication.*$/PasswordAuthentication no/' $ssh_config_file
-    systemctl restart ssh
+    systemctl restart sshd
     echo -e "${RED}SSH configuration updated. Public key authentication enabled, password authentication disabled.${NC}"
 else
-    systemctl restart ssh
+    systemctl restart sshd
     echo -e "${RED}SSH configuration updated. Public key authentication enabled, password authentication enabled.${NC}"
 fi
 rm ~/id_rsa.pub
