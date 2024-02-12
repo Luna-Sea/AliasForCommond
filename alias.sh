@@ -10,6 +10,18 @@ echo " alias     Pshow='apt show'                   " >> /etc/alias/alias.sh
 echo " alias     Pclean='apt clean'                 " >> /etc/alias/alias.sh
 echo " alias     Pautoclean='apt autoclean'         " >> /etc/alias/alias.sh
 
+#echo " alias     Pupdate='pacman -Sy'               " >> /etc/alias/alias.sh
+#echo " alias     Pupgrade='pacman -Su'              " >> /etc/alias/alias.sh
+#echo " alias     Premove='pacman -Rns'               " >> /etc/alias/alias.sh
+#echo " alias     Pinstall='pacman -S'             " >> /etc/alias/alias.sh
+#echo " alias     Pinstalled='pacman -Qe'  " >> /etc/alias/alias.sh
+#echo " alias     Psearch='pacman -Ss'               " >> /etc/alias/alias.sh
+#echo " alias     Pshow='pacman -Si'                   " >> /etc/alias/alias.sh
+#echo " alias     Pclean='pacman -Sc'                 " >> /etc/alias/alias.sh
+#echo " alias     Pautoclean='paccache -r'         " >> /etc/alias/alias.sh
+
+
+
 echo " alias     Systemversion='lsb_release -a'     " >> /etc/alias/alias.sh
 echo " alias     Softwareversion='update-alternatives --config'     " >> /etc/alias/alias.sh
 echo " alias     Kernel='cat /proc/version'     " >> /etc/alias/alias.sh
